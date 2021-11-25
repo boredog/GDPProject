@@ -16,24 +16,21 @@ public class PlayerHealth : MonoBehaviour
     public void LoseHealth()
     {
         lives -= 1;
-        for(int i = 0; i < lives; i++)
+        if (lives < 1)
         {
-            if (lives < 1)
-            {
-                Destroy(health[0].gameObject);
-            }
-            if (lives < 2)
-            {
-                Destroy(health[1].gameObject);
-            }
-            if (lives < 3)
-            {
-                Destroy(health[2].gameObject);
-            }
-            if (lives < 0)
-            {
-                Debug.Log("Shine");
-            }
+            Destroy(health[0].gameObject);
+        }
+        if (lives < 2)
+        {
+            Destroy(health[1].gameObject);
+        }
+        if (lives < 3)
+        {
+            Destroy(health[2].gameObject);
+        }
+        if (lives < 0)
+        {
+            Debug.Log("Shine");
         }
     }
 
