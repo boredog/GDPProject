@@ -1424,7 +1424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527536049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1475,7 +1475,6 @@ GameObject:
   - component: {fileID: 590484563}
   - component: {fileID: 590484562}
   - component: {fileID: 590484561}
-  - component: {fileID: 590484560}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1504,24 +1503,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -686, y: 0}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &590484560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590484558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!114 &590484561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,6 +2743,14 @@ PrefabInstance:
     - target: {fileID: 2074866393201455232, guid: b7a6b41384d0bd64f83af1f6e7406d52, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074866393201455233, guid: b7a6b41384d0bd64f83af1f6e7406d52, type: 3}
+      propertyPath: m_FlexibleWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074866393201455233, guid: b7a6b41384d0bd64f83af1f6e7406d52, type: 3}
+      propertyPath: m_PreferredHeight
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2074866393201455234, guid: b7a6b41384d0bd64f83af1f6e7406d52, type: 3}
       propertyPath: m_Pivot.x
