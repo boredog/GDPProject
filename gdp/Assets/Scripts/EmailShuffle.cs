@@ -23,7 +23,14 @@ public class EmailShuffle
     {
         string combinedString = (string)emailTitle[Random.Range(0, emailTitle.Count)];
         combinedString += "\n";
+        combinedString += "\n";
         combinedString += (string)emailDescription[Random.Range(0, emailDescription.Count)];
+        combinedString += "\n";
+        combinedString += "\n";
+        combinedString += "\n";
+        combinedString += "\n";
+        combinedString += "\n";
+        combinedString += "\n";
         combinedString += "\n";
         combinedString += "\n";
         combinedString += (string)emailLink[Random.Range(0, emailLink.Count)];
