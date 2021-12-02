@@ -8,7 +8,6 @@ public enum Phases { BEFOREINSPECTION,INSPECTIONPHASE, AFTERINSPECTION, DEFEAT }
 public class Gameplay : MonoBehaviour
 {
     
-    public Lives lifeScript;
     //public GameObject playerPrefab;
     //public GameObject emailPrefab;
 
@@ -34,11 +33,11 @@ public class Gameplay : MonoBehaviour
 
     private void Update()
     {
-        if (lifeScript.life == 0)
-        {
-            isDead = true;
-            GameOver();
-        }
+        //if (lifeScript.life == 0)
+        //{
+        //    isDead = true;
+        //    GameOver();
+        //}
     }
 
     public IEnumerator EmailEncounter() //for getting into an encounter with an email, should initiate the inspection phase.
@@ -57,53 +56,21 @@ public class Gameplay : MonoBehaviour
                             //unless if life reaches 0
     {
         phase = Phases.AFTERINSPECTION;
-        if ((emailDemo.GetComponent<EmailClass>().IsVirus == true) && (emailDemo.GetComponent<EmailClass>().Allowed = true)) //if the email is a virus and the player allows
-            //it, lose a life
-        {
-            lifeScript.LoseLife();
-            Debug.Log("You let a virus through!");
-        }
-
-        if ((emailDemo.GetComponent<EmailClass>().IsVirus == true) && (emailDemo.GetComponent<EmailClass>().Allowed = false)) //if the email is a virus and the player rejects
-            //it,
-        {
-            //add score
-            Debug.Log("You prevented a virus!");
-        }
-
-        if ((emailDemo.GetComponent<EmailClass>().IsVirus == true) && (emailDemo.GetComponent<EmailClass>().Allowed = false)) //if the email is a virus and the player rejects
-                                                                                                                              //it,
-        {
-            //add score
-            Debug.Log("You prevented a virus!");
-        }
-
-        if ((emailDemo.GetComponent<EmailClass>().IsVirus == false) && (emailDemo.GetComponent<EmailClass>().Allowed = true)) 
-        {
-            Debug.Log("You let an email through!");
-            //add score
-        }
-
-        if ((emailDemo.GetComponent<EmailClass>().IsVirus == false) && (emailDemo.GetComponent<EmailClass>().Allowed = false)) 
-        {
-            lifeScript.LoseLife();
-            Debug.Log("You rejected an email!");
-        }
 
         emailDemo.GetComponent<EmailClass>().Allowed = false; //sets the boolean back to false by default
         Destroy(emailDemo);
 
-        if (lifeScript.life == 0)
-        {
-            phase = Phases.DEFEAT;
-            Debug.Log("died");
-        }
-        else
-        {
-            Debug.Log("Continuing game, back to Before Inspection Phase");
+        //if (lifeScript.life == 0)
+        //{
+          //  phase = Phases.DEFEAT;
+            //Debug.Log("died");
+        //}
+        //else
+        //{
+          //  Debug.Log("Continuing game, back to Before Inspection Phase");
             yield return new WaitForSeconds(5f);
             BeforeNewEmail();
-        }   
+        //}   
     }
 
     void BeforeNewEmail()
