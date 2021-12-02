@@ -7,7 +7,7 @@ public class FindEmail : MonoBehaviour
 {
     public GameObject textBoxOnCanvas;
 
-    void Awake()
+    public void Awake()
     {
         textBoxOnCanvas = GameObject.Find("EmailText");
 

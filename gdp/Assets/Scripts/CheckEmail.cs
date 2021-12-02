@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CheckEmail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class CheckEmail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerUpHandler
 {
     // this script is to put on the "send/trash" button which you drag to the trash or the send
     [SerializeField] private Canvas canvas;
@@ -14,6 +14,7 @@ public class CheckEmail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     public Vector3 resetPos;
     public bool droppedOnSlot, // If button dropped on anything
         gotVirus; // for email
+    Vector2 width;
 
     private void Awake()
     {
@@ -28,29 +29,33 @@ public class CheckEmail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("down");
+        //rectTransform.sizeDelta = new Vector2(150, width.y);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        rectTransform.sizeDelta = width;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("On drag");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("end drag");
         canvasGroup.blocksRaycasts = true;
         // Button go back to initial spot if not 
         if(droppedOnSlot == false)
         {
             transform.position = initial;
         }
+        rectTransform.sizeDelta = width;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("start drag");
         canvasGroup.blocksRaycasts = false;
         eventData.pointerDrag.GetComponent<CheckEmail>().droppedOnSlot = false;
     }
@@ -59,5 +64,7 @@ public class CheckEmail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     {
         transform.localPosition = resetPos;
         initial = transform.position;
+        width = new Vector2(692f, 41f);
+        rectTransform.sizeDelta = width;
     }
 }

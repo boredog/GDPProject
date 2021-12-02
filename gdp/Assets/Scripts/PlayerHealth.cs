@@ -33,9 +33,4 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Shine");
         }
     }
-
-    private void Update()
-    {
-        Debug.Log(lives);
-    }
 }

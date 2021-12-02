@@ -8,13 +8,14 @@ public class TrashSend : MonoBehaviour, IDropHandler
     //This is put into the Trash or the Send objects/images
     public bool trash; //if it the trash or send
     public GameObject email; // the email interface
-    public GameObject playerHealth, checkEmail, score;
+    public GameObject playerHealth, checkEmail, score;    // emailBtn; To instantiate one
     CanvasGroup canvasGroup;
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
         if (eventData.pointerDrag != null)
         {
+            //Email util = new Email();
+
             //put object into place, not rly needed but cool
             canvasGroup.blocksRaycasts = true;
             checkEmail.GetComponent<CheckEmail>().ResetPos();
@@ -27,7 +28,6 @@ public class TrashSend : MonoBehaviour, IDropHandler
                 email.SetActive(false);
                 Debug.Log("WELLLLL DONEEEEEE WOWOWOWWW");
                 score.GetComponent<ScorePointSystem>().AddScoreEmail();
-
             }
 
             else
