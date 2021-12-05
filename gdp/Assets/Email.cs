@@ -37,7 +37,6 @@ public class Email : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(Input.mousePosition);
         if (email.gameObject.activeInHierarchy == true)
         {
             if (time > 0)
