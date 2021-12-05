@@ -36,11 +36,12 @@ public class TrashSend : MonoBehaviour, IDropHandler
                 Debug.Log("WWRONGGGGG STOOPID");
                 playerHealth.GetComponent<PlayerHealth>().LoseHealth();
             }
+
+            
         }
     }
     private void Awake()
     {
        canvasGroup = checkEmail.GetComponent<CanvasGroup>();
     }
-
 }

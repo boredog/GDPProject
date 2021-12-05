@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Email : MonoBehaviour
 {
     //Email pop-up
     public GameObject email;
-    public string btn;
+    float time;
+    public bool timerStart, called;
+    public Text timeText;
+    public GameObject playerHealth;
+    
     public void PopEmail()
     {
         email.gameObject.SetActive(true);
-        btn = this.name;
+        timerStart = true;
     }
 
     public void Destroy()
@@ -18,8 +23,56 @@ public class Email : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public string Btn
+    private void Start()
     {
-        get { return btn; }
+        timerStart = false;
+        called = false;
+        email.SetActive(false);
+    }
+
+    public void Update()
+    {
+        Debug.Log(Input.mousePosition);
+        if (email.gameObject.activeInHierarchy == true)
+        {
+            if (time > 0)
+            {
+                time -= Time.deltaTime;
+                DisplayTime(time);
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                time = 0;
+                timerStart = false;
+                email.SetActive(false);
+                if (!called)
+                {
+                    playerHealth.GetComponent<PlayerHealth>().LoseHealth();
+                    called = true;
+                }
+            }
+        }
+        else
+        {
+            ResetTimer();
+        }
+    }
+
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        timeText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+    }
+
+    public void ResetTimer()
+    {
+        time = 180f;
+        timerStart = false;
+        called = false;
     }
 }

@@ -29,7 +29,7 @@ public class CheckEmail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //rectTransform.sizeDelta = new Vector2(150, width.y);
+        rectTransform.sizeDelta = new Vector2(150, width.y);
     }
 
     public void OnPointerUp(PointerEventData eventData)
